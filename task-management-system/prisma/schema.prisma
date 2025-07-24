@@ -1,0 +1,230 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// 这是您的 Prisma 架构文件，
+// 在文档中了解更多信息：https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model for authentication and user management
+// 用户模型，用于身份验证和用户管理
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String?   // For credential-based authentication / 基于凭据的身份验证
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // User's own tasks
+  // 用户自己的任务
+  tasks         Task[]
+  
+  // Tasks assigned to this user
+  // 分配给该用户的任务
+  assignedTasks Task[]    @relation("TaskAssignee")
+  
+  // Team memberships
+  // 团队成员关系
+  teamMembers   TeamMember[]
+  
+  // Comments made by this user
+  // 该用户发表的评论
+  comments      Comment[]
+  
+  // NextAuth.js required fields
+  // NextAuth.js 必需字段
+  accounts      Account[]
+  sessions      Session[]
+}
+
+// Task model - core entity of the task management system
+// 任务模型 - 任务管理系统的核心实体
+model Task {
+  id          String      @id @default(cuid())
+  title       String
+  description String?
+  status      TaskStatus  @default(PENDING)
+  priority    TaskPriority @default(MEDIUM)
+  dueDate     DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  
+  // Task creator
+  // 任务创建者
+  createdBy   User        @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById String
+  
+  // Task assignee
+  // 任务分配者
+  assignedTo   User?       @relation("TaskAssignee", fields: [assignedToId], references: [id])
+  assignedToId String?
+  
+  // Team association
+  // 团队关联
+  team         Team?       @relation(fields: [teamId], references: [id])
+  teamId       String?
+  
+  // Task comments
+  // 任务评论
+  comments     Comment[]
+  
+  // Task tags for categorization
+  // 任务标签用于分类
+  tags         TaskTag[]
+}
+
+// Task status enumeration
+// 任务状态枚举
+enum TaskStatus {
+  PENDING     // 待处理
+  IN_PROGRESS // 进行中
+  COMPLETED   // 已完成
+  CANCELLED   // 已取消
+}
+
+// Task priority enumeration
+// 任务优先级枚举
+enum TaskPriority {
+  LOW    // 低优先级
+  MEDIUM // 中优先级
+  HIGH   // 高优先级
+  URGENT // 紧急
+}
+
+// Team model for collaboration
+// 团队模型用于协作
+model Team {
+  id          String       @id @default(cuid())
+  name        String
+  description String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  
+  // Team tasks
+  // 团队任务
+  tasks       Task[]
+  
+  // Team members
+  // 团队成员
+  members     TeamMember[]
+}
+
+// Team member relationship
+// 团队成员关系
+model TeamMember {
+  id     String   @id @default(cuid())
+  role   TeamRole @default(MEMBER)
+  
+  // User reference
+  // 用户引用
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  
+  // Team reference
+  // 团队引用
+  team   Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  teamId String
+  
+  @@unique([userId, teamId])
+}
+
+// Team role enumeration
+// 团队角色枚举
+enum TeamRole {
+  OWNER  // 拥有者
+  ADMIN  // 管理员
+  MEMBER // 成员
+}
+
+// Comment model for task discussions
+// 评论模型用于任务讨论
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Comment author
+  // 评论作者
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+  
+  // Related task
+  // 相关任务
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  taskId    String
+}
+
+// Tag model for task categorization
+// 标签模型用于任务分类
+model Tag {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  color     String    @default("#6B7280") // Default gray color / 默认灰色
+  createdAt DateTime  @default(now())
+  
+  // Tasks with this tag
+  // 具有此标签的任务
+  tasks     TaskTag[]
+}
+
+// Many-to-many relationship between tasks and tags
+// 任务和标签之间的多对多关系
+model TaskTag {
+  id     String @id @default(cuid())
+  
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  taskId String
+  
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId  String
+  
+  @@unique([taskId, tagId])
+}
+
+// NextAuth.js required models
+// NextAuth.js 必需模型
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  
+  @@unique([identifier, token])
+}
