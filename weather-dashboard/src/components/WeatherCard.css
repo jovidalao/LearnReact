@@ -1,0 +1,202 @@
+/* Styles for the WeatherCard component */
+/* WeatherCard组件的样式 */
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 500px;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Header section */
+/* 头部部分 */
+.weather-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.city-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.weather-description {
+  font-size: 1.1rem;
+  color: #4a5568;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Main weather section */
+/* 主要天气部分 */
+.weather-main {
+  margin-bottom: 2rem;
+}
+
+.temperature-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.temperature-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.feels-like {
+  font-size: 0.9rem;
+  color: #718096;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.feels-like-chinese {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+/* Weather details section */
+/* 天气详细信息部分 */
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(116, 185, 255, 0.1);
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.detail-item:hover {
+  background: rgba(116, 185, 255, 0.2);
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.detail-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+/* Timestamp section */
+/* 时间戳部分 */
+.weather-timestamp {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(116, 185, 255, 0.2);
+}
+
+.timestamp-text {
+  font-size: 0.8rem;
+  color: #718096;
+  line-height: 1.4;
+}
+
+.timestamp-chinese {
+  font-size: 0.75rem;
+  color: #a0aec0;
+}
+
+/* Responsive design for mobile devices */
+/* 移动设备的响应式设计 */
+@media (max-width: 768px) {
+  .weather-card {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .city-name {
+    font-size: 1.5rem;
+  }
+  
+  .weather-description {
+    font-size: 1rem;
+  }
+  
+  .temperature {
+    font-size: 2.5rem;
+  }
+  
+  .weather-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .weather-details {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .detail-item {
+    padding: 0.8rem;
+  }
+  
+  .detail-label {
+    font-size: 0.75rem;
+  }
+  
+  .detail-value {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animation for card appearance */
+/* 卡片出现动画 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weather-card {
+  animation: slideIn 0.5s ease-out;
+}

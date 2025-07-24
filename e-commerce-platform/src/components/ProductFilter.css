@@ -1,0 +1,127 @@
+/**
+ * 产品筛选器样式
+ * Product filter styles
+ */
+
+.product-filter {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.filter-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* 输入框样式 / Input styles */
+.filter-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #2c5aa0;
+  box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.1);
+}
+
+/* 选择框样式 / Select styles */
+.filter-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #2c5aa0;
+  box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.1);
+}
+
+/* 价格范围样式 / Price range styles */
+.price-range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-input {
+  flex: 1;
+}
+
+.price-separator {
+  font-weight: bold;
+  color: #666;
+}
+
+/* 清除筛选器按钮 / Clear filters button */
+.clear-filters-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 16px;
+}
+
+.clear-filters-btn:hover {
+  background: #e0e0e0;
+  border-color: #bbb;
+}
+
+/* 响应式设计 / Responsive design */
+@media (max-width: 768px) {
+  .product-filter {
+    position: relative;
+    top: 0;
+    margin-bottom: 16px;
+  }
+  
+  .filter-title {
+    font-size: 16px;
+  }
+  
+  .price-range {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .price-separator {
+    display: none;
+  }
+}

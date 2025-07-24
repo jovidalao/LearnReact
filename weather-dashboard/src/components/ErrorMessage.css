@@ -1,0 +1,139 @@
+/* Styles for the ErrorMessage component */
+/* ErrorMessage组件的样式 */
+
+.error-message {
+  background: rgba(254, 226, 226, 0.9);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1rem auto;
+  max-width: 500px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(248, 113, 113, 0.1);
+  backdrop-filter: blur(10px);
+  animation: errorSlideIn 0.5s ease-out;
+}
+
+.error-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.error-content {
+  flex: 1;
+}
+
+.error-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin: 0 0 1rem 0;
+}
+
+.error-text-en {
+  font-size: 1rem;
+  color: #991b1b;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+.error-text-zh {
+  font-size: 0.9rem;
+  color: #b91c1c;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+.retry-button:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.retry-button:active {
+  transform: translateY(0);
+}
+
+.retry-icon {
+  font-size: 1rem;
+  animation: rotate 2s linear infinite;
+}
+
+.retry-text {
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+/* Rotate animation for retry icon */
+/* 重试图标的旋转动画 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Slide in animation for error message */
+/* 错误消息的滑入动画 */
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design for mobile devices */
+/* 移动设备的响应式设计 */
+@media (max-width: 768px) {
+  .error-message {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .error-icon {
+    font-size: 1.5rem;
+  }
+  
+  .error-title {
+    font-size: 1.1rem;
+  }
+  
+  .error-text-en {
+    font-size: 0.9rem;
+  }
+  
+  .error-text-zh {
+    font-size: 0.8rem;
+  }
+  
+  .retry-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}

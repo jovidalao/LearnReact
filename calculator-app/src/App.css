@@ -1,0 +1,406 @@
+/* App组件全局样式 / App Component Global Styles */
+
+/* 
+应用根容器 
+App root container 
+*/
+.App {
+  text-align: center; /* 文本居中对齐 / Text center alignment */
+  min-height: 100vh; /* 最小高度为视口高度 / Minimum height as viewport height */
+  display: flex; /* 弹性布局 / Flex layout */
+  flex-direction: column; /* 垂直方向排列 / Vertical arrangement */
+  align-items: center; /* 水平居中 / Horizontal center */
+  justify-content: center; /* 垂直居中 / Vertical center */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* 渐变背景 / Gradient background */
+  padding: 20px; /* 内边距 / Padding */
+  box-sizing: border-box; /* 边框盒模型 / Border box model */
+}
+
+/* 
+应用头部区域 
+App header area 
+*/
+.App-header {
+  display: flex; /* 弹性布局 / Flex layout */
+  flex-direction: column; /* 垂直排列 / Vertical arrangement */
+  align-items: center; /* 水平居中 / Horizontal center */
+  gap: 30px; /* 子元素间距 / Child element spacing */
+  width: 100%; /* 占满宽度 / Take full width */
+  max-width: 1200px; /* 最大宽度限制 / Maximum width limit */
+}
+
+/* 
+应用底部信息区域 
+App footer information area 
+*/
+.App-footer {
+  margin-top: 40px; /* 顶部外边距 / Top margin */
+  padding: 25px; /* 内边距 / Padding */
+  background: rgba(255, 255, 255, 0.1); /* 半透明白色背景 / Semi-transparent white background */
+  backdrop-filter: blur(15px); /* 背景模糊效果 / Background blur effect */
+  border-radius: 15px; /* 圆角 / Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* 半透明边框 / Semi-transparent border */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* 柔和阴影 / Soft shadow */
+  max-width: 600px; /* 最大宽度 / Maximum width */
+  color: #fff; /* 白色文字 / White text */
+}
+
+/* 
+学习信息区域 
+Learning information area 
+*/
+.learning-info {
+  margin-bottom: 25px; /* 底部外边距 / Bottom margin */
+}
+
+.learning-info p {
+  margin: 8px 0; /* 段落间距 / Paragraph spacing */
+  font-size: 1rem; /* 字体大小 / Font size */
+  line-height: 1.5; /* 行高 / Line height */
+}
+
+.learning-info strong {
+  color: #ffd700; /* 金色强调文字 / Gold emphasis text */
+  font-weight: 700; /* 粗体 / Bold */
+}
+
+/* 
+技能展示区域 
+Skills demonstration area 
+*/
+.skills-demonstrated {
+  margin: 20px 0; /* 垂直外边距 / Vertical margin */
+  text-align: left; /* 左对齐 / Left alignment */
+  background: rgba(255, 255, 255, 0.05); /* 轻微背景色 / Slight background color */
+  padding: 20px; /* 内边距 / Padding */
+  border-radius: 10px; /* 圆角 / Rounded corners */
+  border-left: 4px solid #3498db; /* 左边框装饰 / Left border decoration */
+}
+
+.skills-demonstrated h4 {
+  margin: 0 0 15px 0; /* 标题间距 / Title spacing */
+  color: #3498db; /* 蓝色标题 / Blue title */
+  font-size: 1.1rem; /* 标题字体大小 / Title font size */
+  font-weight: 600; /* 半粗体 / Semi-bold */
+  text-align: center; /* 标题居中 / Title center */
+}
+
+.skills-demonstrated ul {
+  list-style: none; /* 移除默认列表样式 / Remove default list style */
+  padding: 0; /* 移除默认内边距 / Remove default padding */
+  margin: 0; /* 移除默认外边距 / Remove default margin */
+  display: grid; /* 网格布局 / Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 响应式网格 / Responsive grid */
+  gap: 8px; /* 网格间距 / Grid spacing */
+}
+
+.skills-demonstrated li {
+  padding: 8px 12px; /* 内边距 / Padding */
+  background: rgba(255, 255, 255, 0.08); /* 背景色 / Background color */
+  border-radius: 6px; /* 圆角 / Rounded corners */
+  font-size: 0.9rem; /* 字体大小 / Font size */
+  transition: all 0.2s ease; /* 过渡效果 / Transition effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* 边框 / Border */
+}
+
+.skills-demonstrated li:hover {
+  background: rgba(255, 255, 255, 0.15); /* 悬停背景 / Hover background */
+  transform: translateY(-1px); /* 轻微上移 / Slight upward movement */
+}
+
+/* 
+项目信息区域 
+Project information area 
+*/
+.project-info {
+  padding-top: 20px; /* 顶部内边距 / Top padding */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* 顶部边框分割线 / Top border divider */
+}
+
+.project-info p {
+  margin: 10px 0; /* 段落间距 / Paragraph spacing */
+  font-size: 0.95rem; /* 字体大小 / Font size */
+  line-height: 1.6; /* 行高 / Line height */
+  color: rgba(255, 255, 255, 0.9); /* 半透明白色 / Semi-transparent white */
+}
+
+/* 
+响应式设计 - 大屏幕
+Responsive design - large screens
+*/
+@media (min-width: 1200px) {
+  .App-footer {
+    max-width: 800px; /* 大屏幕上增加最大宽度 / Increase max width on large screens */
+    padding: 35px; /* 增加内边距 / Increase padding */
+  }
+  
+  .learning-info p {
+    font-size: 1.1rem; /* 增大字体 / Increase font size */
+  }
+  
+  .skills-demonstrated h4 {
+    font-size: 1.2rem; /* 增大标题字体 / Increase title font size */
+  }
+}
+
+/* 
+响应式设计 - 平板设备
+Responsive design - tablet devices
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .App-footer {
+    max-width: 550px; /* 平板适中宽度 / Moderate width for tablets */
+  }
+  
+  .skills-demonstrated ul {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 调整网格列宽 / Adjust grid column width */
+  }
+}
+
+/* 
+响应式设计 - 移动设备
+Responsive design - mobile devices
+*/
+@media (max-width: 768px) {
+  .App {
+    padding: 15px; /* 减少内边距 / Reduce padding */
+  }
+  
+  .App-header {
+    gap: 20px; /* 减少子元素间距 / Reduce child element spacing */
+  }
+  
+  .App-footer {
+    margin-top: 25px; /* 减少顶部外边距 / Reduce top margin */
+    padding: 20px; /* 减少内边距 / Reduce padding */
+    border-radius: 12px; /* 减小圆角 / Reduce border radius */
+  }
+  
+  .learning-info p {
+    font-size: 0.9rem; /* 减小字体 / Reduce font size */
+  }
+  
+  .skills-demonstrated {
+    padding: 15px; /* 减少内边距 / Reduce padding */
+  }
+  
+  .skills-demonstrated h4 {
+    font-size: 1rem; /* 减小标题字体 / Reduce title font size */
+  }
+  
+  .skills-demonstrated ul {
+    grid-template-columns: 1fr; /* 单列布局 / Single column layout */
+    gap: 6px; /* 减少间距 / Reduce spacing */
+  }
+  
+  .skills-demonstrated li {
+    font-size: 0.85rem; /* 减小字体 / Reduce font size */
+    padding: 6px 10px; /* 减少内边距 / Reduce padding */
+  }
+  
+  .project-info p {
+    font-size: 0.85rem; /* 减小字体 / Reduce font size */
+  }
+}
+
+/* 
+响应式设计 - 小手机屏幕
+Responsive design - small phone screens
+*/
+@media (max-width: 480px) {
+  .App {
+    padding: 10px; /* 进一步减少内边距 / Further reduce padding */
+  }
+  
+  .App-footer {
+    margin-top: 20px; /* 进一步减少顶部外边距 / Further reduce top margin */
+    padding: 15px; /* 进一步减少内边距 / Further reduce padding */
+  }
+  
+  .learning-info p {
+    font-size: 0.8rem; /* 进一步减小字体 / Further reduce font size */
+  }
+  
+  .skills-demonstrated h4 {
+    font-size: 0.95rem; /* 进一步减小标题字体 / Further reduce title font size */
+  }
+  
+  .skills-demonstrated li {
+    font-size: 0.8rem; /* 进一步减小字体 / Further reduce font size */
+  }
+  
+  .project-info p {
+    font-size: 0.8rem; /* 进一步减小字体 / Further reduce font size */
+  }
+}
+
+/* 
+横屏模式适配 
+Landscape mode adaptation 
+*/
+@media (max-height: 500px) and (orientation: landscape) {
+  .App {
+    justify-content: flex-start; /* 顶部对齐 / Top alignment */
+    padding: 10px; /* 减少内边距 / Reduce padding */
+  }
+  
+  .App-header {
+    gap: 15px; /* 减少间距 / Reduce spacing */
+  }
+  
+  .App-footer {
+    margin-top: 15px; /* 减少顶部外边距 / Reduce top margin */
+    padding: 15px; /* 减少内边距 / Reduce padding */
+  }
+  
+  .skills-demonstrated ul {
+    grid-template-columns: repeat(2, 1fr); /* 两列布局节省空间 / Two-column layout to save space */
+  }
+}
+
+/* 
+高对比度模式支持 
+High contrast mode support 
+*/
+@media (prefers-contrast: high) {
+  .App {
+    background: #000; /* 黑色背景 / Black background */
+    color: #fff; /* 白色文字 / White text */
+  }
+  
+  .App-footer {
+    background: #000; /* 黑色背景 / Black background */
+    border: 2px solid #fff; /* 白色边框 / White border */
+    backdrop-filter: none; /* 移除背景模糊 / Remove background blur */
+  }
+  
+  .learning-info strong {
+    color: #fff; /* 白色强调文字 / White emphasis text */
+  }
+  
+  .skills-demonstrated {
+    background: #000; /* 黑色背景 / Black background */
+    border: 2px solid #fff; /* 白色边框 / White border */
+    border-left: 4px solid #fff; /* 白色左边框 / White left border */
+  }
+  
+  .skills-demonstrated h4 {
+    color: #fff; /* 白色标题 / White title */
+  }
+  
+  .skills-demonstrated li {
+    background: #000; /* 黑色背景 / Black background */
+    border: 1px solid #fff; /* 白色边框 / White border */
+  }
+  
+  .skills-demonstrated li:hover {
+    background: #333; /* 深灰悬停背景 / Dark gray hover background */
+  }
+  
+  .project-info {
+    border-top: 2px solid #fff; /* 白色顶部边框 / White top border */
+  }
+  
+  .project-info p {
+    color: #fff; /* 白色文字 / White text */
+  }
+}
+
+/* 
+减少动画偏好支持 
+Reduced motion preference support 
+*/
+@media (prefers-reduced-motion: reduce) {
+  .skills-demonstrated li {
+    transition: none !important; /* 禁用过渡效果 / Disable transition effects */
+  }
+  
+  .skills-demonstrated li:hover {
+    transform: none; /* 禁用变换效果 / Disable transform effects */
+  }
+  
+  .App-footer {
+    backdrop-filter: none; /* 禁用背景模糊 / Disable background blur */
+  }
+}
+
+/* 
+打印样式 
+Print styles 
+*/
+@media print {
+  .App {
+    background: #fff; /* 白色背景 / White background */
+    color: #000; /* 黑色文字 / Black text */
+    padding: 0; /* 移除内边距 / Remove padding */
+  }
+  
+  .App-footer {
+    background: #fff; /* 白色背景 / White background */
+    color: #000; /* 黑色文字 / Black text */
+    border: 2px solid #000; /* 黑色边框 / Black border */
+    backdrop-filter: none; /* 移除背景模糊 / Remove background blur */
+    box-shadow: none; /* 移除阴影 / Remove shadows */
+    page-break-inside: avoid; /* 避免在内部分页 / Avoid page break inside */
+  }
+  
+  .learning-info strong {
+    color: #000; /* 黑色强调文字 / Black emphasis text */
+  }
+  
+  .skills-demonstrated h4 {
+    color: #000; /* 黑色标题 / Black title */
+  }
+}
+
+/* 
+深色主题支持（系统偏好）
+Dark theme support (system preference)
+*/
+@media (prefers-color-scheme: dark) {
+  .App-footer {
+    background: rgba(0, 0, 0, 0.3); /* 更深的背景 / Darker background */
+    border-color: rgba(255, 255, 255, 0.3); /* 调整边框颜色 / Adjust border color */
+  }
+  
+  .skills-demonstrated {
+    background: rgba(0, 0, 0, 0.2); /* 更深的背景 / Darker background */
+  }
+  
+  .skills-demonstrated li {
+    background: rgba(0, 0, 0, 0.3); /* 更深的背景 / Darker background */
+  }
+}
+
+/* 
+焦点可访问性 
+Focus accessibility 
+*/
+.App:focus-within {
+  outline: none; /* 移除应用级别的焦点轮廓 / Remove app-level focus outline */
+}
+
+/* 
+滚动行为优化 
+Scroll behavior optimization 
+*/
+.App {
+  scroll-behavior: smooth; /* 平滑滚动 / Smooth scrolling */
+}
+
+/* 
+加载动画（可选） 
+Loading animation (optional) 
+*/
+@keyframes appFadeIn {
+  from {
+    opacity: 0; /* 从透明开始 / Start from transparent */
+  }
+  to {
+    opacity: 1; /* 到达完全不透明 / Reach full opacity */
+  }
+}
+
+.App {
+  animation: appFadeIn 0.6s ease-in; /* 应用淡入动画 / App fade-in animation */
+}

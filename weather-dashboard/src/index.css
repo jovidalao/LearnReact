@@ -1,0 +1,40 @@
+/* Global styles for the Weather Dashboard application */
+/* 天气仪表板应用程序的全局样式 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Remove default button styles */
+/* 移除默认按钮样式 */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Input field styles */
+/* 输入字段样式 */
+input {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Responsive design for mobile devices */
+/* 移动设备的响应式设计 */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}

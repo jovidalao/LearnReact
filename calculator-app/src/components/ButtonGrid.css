@@ -1,0 +1,275 @@
+/* ButtonGrid组件样式 / ButtonGrid Component Styles */
+
+/* 
+按钮网格容器 
+Button grid container 
+*/
+.button-grid {
+  display: flex; /* 弹性布局 / Flex layout */
+  flex-direction: column; /* 垂直排列 / Vertical arrangement */
+  gap: 4px; /* 行间距 / Row spacing */
+  width: 100%; /* 占满容器宽度 / Take full container width */
+  max-width: 400px; /* 最大宽度限制 / Maximum width limit */
+  margin: 0 auto; /* 水平居中 / Horizontal center */
+  padding: 0; /* 移除默认内边距 / Remove default padding */
+}
+
+/* 
+按钮行容器 
+Button row container 
+*/
+.button-row {
+  display: grid; /* 网格布局 / Grid layout */
+  grid-template-columns: repeat(4, 1fr); /* 4列等宽布局 / 4 equal-width columns */
+  gap: 4px; /* 按钮间距 / Button spacing */
+  width: 100%; /* 占满行宽度 / Take full row width */
+}
+
+/* 
+特殊按钮布局 - 零按钮跨两列
+Special button layout - zero button spans two columns
+*/
+.button-row:last-child {
+  /* 最后一行的特殊布局：0按钮占两格，小数点和等号各占一格 */
+  /* Special layout for last row: 0 button spans 2 columns, decimal and equals each span 1 column */
+  grid-template-columns: 2fr 1fr 1fr; /* 2:1:1的比例 / 2:1:1 ratio */
+}
+
+/* 
+零按钮特殊样式 
+Zero button special styles 
+*/
+.button-zero {
+  /* 零按钮已经通过grid-template-columns占据两个位置 */
+  /* Zero button already takes two positions through grid-template-columns */
+  justify-self: stretch; /* 拉伸填满分配的空间 / Stretch to fill allocated space */
+}
+
+/* 
+等号按钮特殊样式 
+Equals button special styles 
+*/
+.button-equals {
+  /* 可以在这里添加等号按钮的特殊样式 */
+  /* Can add special styles for equals button here */
+  font-size: 1.4rem; /* 较大的字体 / Larger font */
+  font-weight: bold; /* 粗体 / Bold */
+}
+
+/* 
+键盘提示区域 
+Keyboard hints area 
+*/
+.keyboard-hints {
+  margin-top: 20px; /* 顶部间距 / Top spacing */
+  padding: 15px; /* 内边距 / Padding */
+  background: rgba(255, 255, 255, 0.1); /* 半透明白色背景 / Semi-transparent white background */
+  border-radius: 8px; /* 圆角 / Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* 半透明边框 / Semi-transparent border */
+  backdrop-filter: blur(10px); /* 背景模糊效果 / Background blur effect */
+  color: #fff; /* 白色文字 / White text */
+  font-size: 0.85rem; /* 小字体 / Small font */
+  line-height: 1.4; /* 行高 / Line height */
+}
+
+/* 
+提示标题 
+Hint title 
+*/
+.hint-title {
+  font-weight: bold; /* 粗体 / Bold */
+  margin-bottom: 8px; /* 底部间距 / Bottom spacing */
+  color: #fff; /* 白色文字 / White text */
+  text-align: center; /* 居中对齐 / Center alignment */
+}
+
+/* 
+提示内容 
+Hint content 
+*/
+.hint-content {
+  display: flex; /* 弹性布局 / Flex layout */
+  flex-direction: column; /* 垂直排列 / Vertical arrangement */
+  gap: 4px; /* 项目间距 / Item spacing */
+}
+
+.hint-content span {
+  display: block; /* 块级显示 / Block display */
+  padding: 2px 0; /* 垂直内边距 / Vertical padding */
+  color: rgba(255, 255, 255, 0.9); /* 略微透明的白色 / Slightly transparent white */
+}
+
+/* 
+响应式设计 - 大屏幕
+Responsive design - large screens
+*/
+@media (min-width: 1200px) {
+  .button-grid {
+    max-width: 450px; /* 大屏幕上增加最大宽度 / Increase max width on large screens */
+  }
+  
+  .button-row {
+    gap: 6px; /* 增加按钮间距 / Increase button spacing */
+  }
+  
+  .button-grid {
+    gap: 6px; /* 增加行间距 / Increase row spacing */
+  }
+}
+
+/* 
+响应式设计 - 平板设备
+Responsive design - tablet devices
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .button-grid {
+    max-width: 380px; /* 平板上的适中宽度 / Moderate width on tablets */
+  }
+}
+
+/* 
+响应式设计 - 移动设备
+Responsive design - mobile devices
+*/
+@media (max-width: 768px) {
+  .button-grid {
+    max-width: 100%; /* 移动设备上占满宽度 / Take full width on mobile */
+    gap: 3px; /* 减少行间距 / Reduce row spacing */
+  }
+  
+  .button-row {
+    gap: 3px; /* 减少按钮间距 / Reduce button spacing */
+  }
+  
+  .keyboard-hints {
+    margin-top: 15px; /* 减少顶部间距 / Reduce top spacing */
+    padding: 12px; /* 减少内边距 / Reduce padding */
+    font-size: 0.8rem; /* 更小的字体 / Smaller font */
+  }
+  
+  .hint-content {
+    gap: 3px; /* 减少项目间距 / Reduce item spacing */
+  }
+}
+
+/* 
+响应式设计 - 小手机屏幕
+Responsive design - small phone screens
+*/
+@media (max-width: 480px) {
+  .button-grid {
+    gap: 2px; /* 进一步减少行间距 / Further reduce row spacing */
+  }
+  
+  .button-row {
+    gap: 2px; /* 进一步减少按钮间距 / Further reduce button spacing */
+  }
+  
+  .keyboard-hints {
+    margin-top: 10px; /* 进一步减少顶部间距 / Further reduce top spacing */
+    padding: 10px; /* 进一步减少内边距 / Further reduce padding */
+    font-size: 0.75rem; /* 更小的字体 / Even smaller font */
+  }
+  
+  .hint-title {
+    margin-bottom: 6px; /* 减少标题底部间距 / Reduce title bottom spacing */
+  }
+}
+
+/* 
+横屏模式适配 
+Landscape mode adaptation 
+*/
+@media (max-height: 500px) and (orientation: landscape) {
+  .keyboard-hints {
+    display: none; /* 横屏时隐藏键盘提示以节省空间 / Hide keyboard hints in landscape to save space */
+  }
+  
+  .button-grid {
+    gap: 2px; /* 减少间距 / Reduce spacing */
+  }
+  
+  .button-row {
+    gap: 2px; /* 减少按钮间距 / Reduce button spacing */
+  }
+}
+
+/* 
+高对比度模式支持 
+High contrast mode support 
+*/
+@media (prefers-contrast: high) {
+  .keyboard-hints {
+    background: #000; /* 黑色背景 / Black background */
+    border: 2px solid #fff; /* 白色边框 / White border */
+    color: #fff; /* 白色文字 / White text */
+  }
+  
+  .hint-content span {
+    color: #fff; /* 纯白文字 / Pure white text */
+  }
+}
+
+/* 
+减少动画偏好支持 
+Reduced motion preference support 
+*/
+@media (prefers-reduced-motion: reduce) {
+  .keyboard-hints {
+    backdrop-filter: none; /* 禁用背景模糊效果 / Disable background blur effect */
+  }
+}
+
+/* 
+打印样式 
+Print styles 
+*/
+@media print {
+  .keyboard-hints {
+    display: none; /* 打印时隐藏键盘提示 / Hide keyboard hints when printing */
+  }
+  
+  .button-grid {
+    break-inside: avoid; /* 避免在按钮网格中间分页 / Avoid page break inside button grid */
+  }
+}
+
+/* 
+深色主题支持（如果系统偏好深色模式）
+Dark theme support (if system prefers dark mode)
+*/
+@media (prefers-color-scheme: dark) {
+  .keyboard-hints {
+    background: rgba(0, 0, 0, 0.3); /* 更深的背景 / Darker background */
+    border-color: rgba(255, 255, 255, 0.3); /* 调整边框颜色 / Adjust border color */
+  }
+}
+
+/* 
+可访问性 - 焦点管理
+Accessibility - focus management
+*/
+.button-grid:focus-within {
+  /* 当网格内有焦点时的样式 / Styles when grid has focus within */
+  outline: none; /* 移除默认轮廓 / Remove default outline */
+}
+
+/* 
+网格布局备用方案（对于不支持CSS Grid的浏览器）
+Grid layout fallback (for browsers that don't support CSS Grid)
+*/
+@supports not (display: grid) {
+  .button-row {
+    display: flex; /* 降级到弹性布局 / Fallback to flex layout */
+    flex-wrap: wrap; /* 允许换行 / Allow wrapping */
+  }
+  
+  .button-row > * {
+    flex: 1; /* 等分宽度 / Equal width distribution */
+    min-width: 0; /* 允许收缩 / Allow shrinking */
+  }
+  
+  .button-zero {
+    flex: 2; /* 零按钮占双倍宽度 / Zero button takes double width */
+  }
+}

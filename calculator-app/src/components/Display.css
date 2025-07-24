@@ -1,0 +1,234 @@
+/* Display组件样式 / Display Component Styles */
+
+/* 
+显示容器 - 包含整个显示区域
+Display container - contains the entire display area
+*/
+.display-container {
+  background: #1a1a1a; /* 深色背景，类似真实计算器 / Dark background, similar to real calculator */
+  border-radius: 8px; /* 圆角边框 / Rounded borders */
+  padding: 20px; /* 内边距 / Padding */
+  margin-bottom: 15px; /* 底部外边距 / Bottom margin */
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.3), /* 内阴影营造凹陷效果 / Inner shadow for sunken effect */
+    0 1px 3px rgba(255, 255, 255, 0.1); /* 外阴影增加立体感 / Outer shadow for dimension */
+  position: relative; /* 相对定位，为内部绝对定位元素提供参考 / Relative positioning for inner absolute elements */
+}
+
+/* 
+表达式显示 - 显示当前计算表达式
+Expression display - shows current calculation expression
+*/
+.display-expression {
+  color: #888; /* 较暗的文字颜色 / Darker text color */
+  font-size: 14px; /* 较小的字体 / Smaller font size */
+  font-family: 'Courier New', monospace; /* 等宽字体确保对齐 / Monospace font for alignment */
+  text-align: right; /* 右对齐 / Right alignment */
+  margin-bottom: 5px; /* 底部间距 / Bottom spacing */
+  height: 20px; /* 固定高度防止布局跳动 / Fixed height to prevent layout jumping */
+  overflow: hidden; /* 隐藏溢出内容 / Hide overflow content */
+  white-space: nowrap; /* 不换行 / No line wrapping */
+}
+
+/* 
+主显示区域 - 显示主要数值
+Main display area - shows main numerical value
+*/
+.display {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%); /* 渐变背景 / Gradient background */
+  border: 1px solid #333; /* 边框 / Border */
+  border-radius: 4px; /* 小圆角 / Small rounded corners */
+  padding: 15px 20px; /* 内边距 / Padding */
+  min-height: 60px; /* 最小高度 / Minimum height */
+  display: flex; /* 弹性布局 / Flex layout */
+  align-items: center; /* 垂直居中 / Vertical center */
+  justify-content: flex-end; /* 水平右对齐 / Horizontal right alignment */
+  position: relative; /* 相对定位 / Relative positioning */
+  overflow: hidden; /* 隐藏溢出 / Hide overflow */
+}
+
+/* 
+显示值样式 
+Display value styles 
+*/
+.display-value {
+  color: #00ff88; /* 绿色数字，经典计算器风格 / Green numbers, classic calculator style */
+  font-size: 2.5rem; /* 大字体 / Large font */
+  font-family: 'Courier New', monospace; /* 等宽字体 / Monospace font */
+  font-weight: bold; /* 粗体 / Bold */
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3); /* 发光效果 / Glow effect */
+  white-space: nowrap; /* 不换行 / No wrapping */
+  overflow: hidden; /* 隐藏溢出 / Hide overflow */
+  text-overflow: ellipsis; /* 溢出显示省略号 / Show ellipsis on overflow */
+  transition: all 0.2s ease; /* 平滑过渡 / Smooth transition */
+}
+
+/* 
+内存指示器 - 显示M标记当内存中有值时
+Memory indicator - shows M mark when memory has value
+*/
+.memory-indicator {
+  position: absolute; /* 绝对定位 / Absolute positioning */
+  top: 8px; /* 距离顶部 / Distance from top */
+  left: 8px; /* 距离左边 / Distance from left */
+  color: #ff6b35; /* 橙色，突出显示 / Orange color for emphasis */
+  font-size: 12px; /* 小字体 / Small font */
+  font-weight: bold; /* 粗体 / Bold */
+  background: rgba(255, 107, 53, 0.2); /* 半透明背景 / Semi-transparent background */
+  padding: 2px 6px; /* 内边距 / Padding */
+  border-radius: 10px; /* 圆角 / Rounded corners */
+  border: 1px solid #ff6b35; /* 边框 / Border */
+  animation: pulse 2s infinite; /* 脉冲动画 / Pulse animation */
+}
+
+/* 
+脉冲动画 - 让内存指示器更显眼
+Pulse animation - make memory indicator more noticeable
+*/
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1; /* 完全不透明 / Fully opaque */
+  }
+  50% {
+    opacity: 0.6; /* 半透明 / Semi-transparent */
+  }
+}
+
+/* 
+错误状态显示样式 
+Error state display styles 
+*/
+.display--error .display-value {
+  color: #ff4757; /* 红色错误文字 / Red error text */
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.3); /* 红色发光效果 / Red glow effect */
+  animation: shake 0.5s ease-in-out; /* 震动动画 / Shake animation */
+}
+
+/* 
+震动动画 - 错误时的视觉反馈
+Shake animation - visual feedback on error
+*/
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0); /* 原位置 / Original position */
+  }
+  25% {
+    transform: translateX(-5px); /* 左移 / Move left */
+  }
+  75% {
+    transform: translateX(5px); /* 右移 / Move right */
+  }
+}
+
+/* 
+小字体样式 - 当数字太长时使用
+Small text style - used when numbers are too long
+*/
+.display--small-text .display-value {
+  font-size: 1.8rem; /* 较小的字体 / Smaller font */
+}
+
+/* 
+错误提示 - 显示在错误信息下方
+Error hint - shown below error messages
+*/
+.error-hint {
+  color: #ff6b35; /* 橙色提示文字 / Orange hint text */
+  font-size: 12px; /* 小字体 / Small font */
+  text-align: center; /* 居中对齐 / Center alignment */
+  margin-top: 8px; /* 顶部间距 / Top spacing */
+  opacity: 0.8; /* 略微透明 / Slightly transparent */
+  animation: fadeIn 0.3s ease-in; /* 淡入动画 / Fade in animation */
+}
+
+/* 
+淡入动画 
+Fade in animation 
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* 从透明开始 / Start from transparent */
+    transform: translateY(-10px); /* 从上方滑入 / Slide in from top */
+  }
+  to {
+    opacity: 0.8; /* 到达目标透明度 / Reach target opacity */
+    transform: translateY(0); /* 到达最终位置 / Reach final position */
+  }
+}
+
+/* 
+响应式设计 - 移动设备适配
+Responsive design - mobile device adaptation
+*/
+@media (max-width: 768px) {
+  /* 移动设备上的显示调整 / Display adjustments on mobile devices */
+  .display-container {
+    padding: 15px; /* 减少内边距 / Reduce padding */
+    margin-bottom: 10px; /* 减少底部间距 / Reduce bottom spacing */
+  }
+  
+  .display {
+    min-height: 50px; /* 减少最小高度 / Reduce minimum height */
+    padding: 12px 15px; /* 减少内边距 / Reduce padding */
+  }
+  
+  .display-value {
+    font-size: 2rem; /* 较小的字体以适应小屏幕 / Smaller font for small screens */
+  }
+  
+  .display--small-text .display-value {
+    font-size: 1.5rem; /* 进一步减小字体 / Further reduce font size */
+  }
+  
+  .display-expression {
+    font-size: 12px; /* 更小的表达式字体 / Smaller expression font */
+  }
+}
+
+/* 
+平板设备适配 
+Tablet device adaptation 
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .display-value {
+    font-size: 2.2rem; /* 平板上的中等字体 / Medium font on tablets */
+  }
+}
+
+/* 
+高对比度模式支持 
+High contrast mode support 
+*/
+@media (prefers-contrast: high) {
+  .display {
+    border: 2px solid #fff; /* 更明显的边框 / More visible border */
+    background: #000; /* 纯黑背景 / Pure black background */
+  }
+  
+  .display-value {
+    color: #fff; /* 纯白文字 / Pure white text */
+    text-shadow: none; /* 移除发光效果 / Remove glow effect */
+  }
+  
+  .memory-indicator {
+    background: #fff; /* 白色背景 / White background */
+    color: #000; /* 黑色文字 / Black text */
+  }
+}
+
+/* 
+减少动画偏好支持 
+Reduced motion preference support 
+*/
+@media (prefers-reduced-motion: reduce) {
+  /* 为偏好减少动画的用户禁用所有动画 / Disable all animations for users who prefer reduced motion */
+  .memory-indicator,
+  .display--error .display-value,
+  .error-hint {
+    animation: none !important;
+  }
+  
+  .display-value {
+    transition: none !important;
+  }
+}

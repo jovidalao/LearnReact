@@ -1,0 +1,357 @@
+/* Calculator组件样式 / Calculator Component Styles */
+
+/* 
+主计算器容器 
+Main calculator container 
+*/
+.calculator {
+  /* 布局属性 / Layout properties */
+  display: flex; /* 弹性布局 / Flex layout */
+  flex-direction: column; /* 垂直排列 / Vertical arrangement */
+  align-items: center; /* 水平居中 / Horizontal center */
+  gap: 20px; /* 子元素间距 / Child element spacing */
+  
+  /* 尺寸属性 / Size properties */
+  width: 100%; /* 占满容器宽度 / Take full container width */
+  max-width: 420px; /* 最大宽度限制 / Maximum width limit */
+  min-height: 600px; /* 最小高度 / Minimum height */
+  
+  /* 外观样式 / Appearance styles */
+  background: linear-gradient(145deg, #2c3e50, #34495e); /* 深色渐变背景 / Dark gradient background */
+  border-radius: 20px; /* 圆角 / Rounded corners */
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3), /* 外阴影营造悬浮效果 / Outer shadow for floating effect */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1); /* 内阴影增加立体感 / Inner shadow for dimension */
+  
+  /* 内边距 / Padding */
+  padding: 25px; /* 内边距 / Padding */
+  
+  /* 其他属性 / Other properties */
+  position: relative; /* 相对定位 / Relative positioning */
+  overflow: hidden; /* 隐藏溢出内容 / Hide overflow content */
+}
+
+/* 
+计算器顶部装饰效果 
+Calculator top decoration effect 
+*/
+.calculator::before {
+  content: ''; /* 空内容 / Empty content */
+  position: absolute; /* 绝对定位 / Absolute positioning */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px; /* 高度 / Height */
+  background: linear-gradient(90deg, #3498db, #2ecc71, #f39c12, #e74c3c); /* 彩色渐变条 / Colorful gradient bar */
+  border-radius: 20px 20px 0 0; /* 顶部圆角 / Top rounded corners */
+}
+
+/* 
+计算器标题区域 
+Calculator header area 
+*/
+.calculator-header {
+  text-align: center; /* 文字居中 / Text center */
+  color: #fff; /* 白色文字 / White text */
+  margin-bottom: 10px; /* 底部间距 / Bottom spacing */
+}
+
+.calculator-header h1 {
+  font-size: 1.5rem; /* 标题字体大小 / Title font size */
+  font-weight: 700; /* 粗体 / Bold */
+  margin: 0 0 5px 0; /* 外边距 / Margin */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 文字阴影 / Text shadow */
+  background: linear-gradient(45deg, #3498db, #2ecc71); /* 渐变文字颜色 / Gradient text color */
+  -webkit-background-clip: text; /* 背景裁剪到文字 / Background clip to text */
+  -webkit-text-fill-color: transparent; /* 透明文字填充 / Transparent text fill */
+  background-clip: text; /* 标准属性 / Standard property */
+}
+
+.calculator-header p {
+  font-size: 0.9rem; /* 副标题字体大小 / Subtitle font size */
+  color: rgba(255, 255, 255, 0.8); /* 半透明白色 / Semi-transparent white */
+  margin: 0; /* 移除默认外边距 / Remove default margin */
+  font-weight: 300; /* 细体 / Light weight */
+}
+
+/* 
+计算历史区域 
+Calculation history area 
+*/
+.calculator-history {
+  width: 100%; /* 占满宽度 / Take full width */
+  background: rgba(255, 255, 255, 0.05); /* 半透明背景 / Semi-transparent background */
+  border-radius: 12px; /* 圆角 / Rounded corners */
+  padding: 15px; /* 内边距 / Padding */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* 半透明边框 / Semi-transparent border */
+  backdrop-filter: blur(10px); /* 背景模糊 / Background blur */
+}
+
+/* 
+历史记录标题 
+History record title 
+*/
+.history-header {
+  color: #fff; /* 白色文字 / White text */
+  font-size: 0.9rem; /* 字体大小 / Font size */
+  font-weight: 600; /* 半粗体 / Semi-bold */
+  margin-bottom: 10px; /* 底部间距 / Bottom spacing */
+  text-align: center; /* 居中对齐 / Center alignment */
+  text-transform: uppercase; /* 大写 / Uppercase */
+  letter-spacing: 0.5px; /* 字母间距 / Letter spacing */
+}
+
+/* 
+历史记录列表 
+History record list 
+*/
+.history-list {
+  display: flex; /* 弹性布局 / Flex layout */
+  flex-direction: column; /* 垂直排列 / Vertical arrangement */
+  gap: 6px; /* 项目间距 / Item spacing */
+}
+
+/* 
+历史记录项目 
+History record item 
+*/
+.history-item {
+  color: rgba(255, 255, 255, 0.9); /* 半透明白色文字 / Semi-transparent white text */
+  font-size: 0.8rem; /* 小字体 / Small font */
+  font-family: 'Courier New', monospace; /* 等宽字体 / Monospace font */
+  padding: 6px 10px; /* 内边距 / Padding */
+  background: rgba(255, 255, 255, 0.05); /* 背景色 / Background color */
+  border-radius: 6px; /* 圆角 / Rounded corners */
+  border-left: 3px solid #3498db; /* 左边框装饰 / Left border decoration */
+  transition: all 0.2s ease; /* 过渡效果 / Transition effect */
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.1); /* 悬停背景 / Hover background */
+  transform: translateX(5px); /* 轻微右移 / Slight right movement */
+}
+
+/* 
+响应式设计 - 大屏幕
+Responsive design - large screens
+*/
+@media (min-width: 1200px) {
+  .calculator {
+    max-width: 480px; /* 大屏幕上增加宽度 / Increase width on large screens */
+    padding: 30px; /* 增加内边距 / Increase padding */
+  }
+  
+  .calculator-header h1 {
+    font-size: 1.8rem; /* 增大标题字体 / Increase title font */
+  }
+  
+  .calculator-header p {
+    font-size: 1rem; /* 增大副标题字体 / Increase subtitle font */
+  }
+}
+
+/* 
+响应式设计 - 平板设备
+Responsive design - tablet devices
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .calculator {
+    max-width: 400px; /* 平板适中宽度 / Moderate width for tablets */
+  }
+}
+
+/* 
+响应式设计 - 移动设备
+Responsive design - mobile devices
+*/
+@media (max-width: 768px) {
+  .calculator {
+    max-width: 100%; /* 移动设备占满宽度 / Take full width on mobile */
+    min-height: auto; /* 自动高度 / Auto height */
+    padding: 20px; /* 减少内边距 / Reduce padding */
+    gap: 15px; /* 减少子元素间距 / Reduce child element spacing */
+    border-radius: 15px; /* 减小圆角 / Reduce border radius */
+  }
+  
+  .calculator-header h1 {
+    font-size: 1.3rem; /* 减小标题字体 / Reduce title font */
+  }
+  
+  .calculator-header p {
+    font-size: 0.8rem; /* 减小副标题字体 / Reduce subtitle font */
+  }
+  
+  .calculator-history {
+    padding: 12px; /* 减少历史区域内边距 / Reduce history area padding */
+  }
+  
+  .history-item {
+    font-size: 0.75rem; /* 更小的历史项目字体 / Smaller history item font */
+    padding: 5px 8px; /* 减少内边距 / Reduce padding */
+  }
+}
+
+/* 
+响应式设计 - 小手机屏幕
+Responsive design - small phone screens
+*/
+@media (max-width: 480px) {
+  .calculator {
+    padding: 15px; /* 进一步减少内边距 / Further reduce padding */
+    gap: 12px; /* 进一步减少间距 / Further reduce spacing */
+    border-radius: 12px; /* 进一步减小圆角 / Further reduce border radius */
+  }
+  
+  .calculator-header h1 {
+    font-size: 1.1rem; /* 进一步减小标题 / Further reduce title */
+  }
+  
+  .calculator-header p {
+    font-size: 0.75rem; /* 进一步减小副标题 / Further reduce subtitle */
+  }
+}
+
+/* 
+横屏模式适配 
+Landscape mode adaptation 
+*/
+@media (max-height: 500px) and (orientation: landscape) {
+  .calculator {
+    gap: 8px; /* 减少间距以节省垂直空间 / Reduce spacing to save vertical space */
+    padding: 10px; /* 减少内边距 / Reduce padding */
+    min-height: auto; /* 自动高度 / Auto height */
+  }
+  
+  .calculator-header {
+    margin-bottom: 5px; /* 减少标题底部间距 / Reduce title bottom spacing */
+  }
+  
+  .calculator-header h1 {
+    font-size: 1rem; /* 更小的标题字体 / Smaller title font */
+  }
+  
+  .calculator-header p {
+    font-size: 0.7rem; /* 更小的副标题字体 / Smaller subtitle font */
+  }
+  
+  .calculator-history {
+    display: none; /* 横屏时隐藏历史记录 / Hide history in landscape */
+  }
+}
+
+/* 
+高对比度模式支持 
+High contrast mode support 
+*/
+@media (prefers-contrast: high) {
+  .calculator {
+    background: #000; /* 黑色背景 / Black background */
+    border: 3px solid #fff; /* 白色边框 / White border */
+    box-shadow: none; /* 移除阴影 / Remove shadows */
+  }
+  
+  .calculator::before {
+    display: none; /* 隐藏装饰条 / Hide decoration bar */
+  }
+  
+  .calculator-header h1 {
+    background: none; /* 移除渐变背景 / Remove gradient background */
+    -webkit-text-fill-color: #fff; /* 白色文字 / White text */
+    color: #fff; /* 白色文字 / White text */
+    text-shadow: none; /* 移除文字阴影 / Remove text shadow */
+  }
+  
+  .calculator-header p {
+    color: #fff; /* 白色文字 / White text */
+  }
+  
+  .calculator-history {
+    background: #000; /* 黑色背景 / Black background */
+    border: 2px solid #fff; /* 白色边框 / White border */
+  }
+  
+  .history-header,
+  .history-item {
+    color: #fff; /* 白色文字 / White text */
+  }
+  
+  .history-item {
+    background: #000; /* 黑色背景 / Black background */
+    border: 1px solid #fff; /* 白色边框 / White border */
+    border-left: 3px solid #fff; /* 白色左边框 / White left border */
+  }
+}
+
+/* 
+减少动画偏好支持 
+Reduced motion preference support 
+*/
+@media (prefers-reduced-motion: reduce) {
+  .calculator,
+  .history-item {
+    transition: none !important; /* 禁用过渡效果 / Disable transition effects */
+  }
+  
+  .history-item:hover {
+    transform: none; /* 禁用悬停变换 / Disable hover transform */
+  }
+  
+  .calculator {
+    backdrop-filter: none; /* 禁用背景模糊 / Disable background blur */
+  }
+  
+  .calculator-history {
+    backdrop-filter: none; /* 禁用背景模糊 / Disable background blur */
+  }
+}
+
+/* 
+打印样式 
+Print styles 
+*/
+@media print {
+  .calculator {
+    background: #fff; /* 白色背景 / White background */
+    color: #000; /* 黑色文字 / Black text */
+    box-shadow: none; /* 移除阴影 / Remove shadows */
+    border: 2px solid #000; /* 黑色边框 / Black border */
+    page-break-inside: avoid; /* 避免在计算器内部分页 / Avoid page break inside calculator */
+  }
+  
+  .calculator::before {
+    display: none; /* 隐藏装饰元素 / Hide decorative elements */
+  }
+  
+  .calculator-header h1,
+  .calculator-header p {
+    color: #000; /* 黑色文字 / Black text */
+  }
+}
+
+/* 
+可访问性增强 
+Accessibility enhancements 
+*/
+.calculator:focus-within {
+  outline: 3px solid #3498db; /* 焦点轮廓 / Focus outline */
+  outline-offset: 2px; /* 轮廓偏移 / Outline offset */
+}
+
+/* 
+加载动画（可选） 
+Loading animation (optional) 
+*/
+@keyframes calculatorLoad {
+  from {
+    opacity: 0; /* 从透明开始 / Start from transparent */
+    transform: translateY(20px) scale(0.9); /* 从下方放大进入 / Enter from below with scaling */
+  }
+  to {
+    opacity: 1; /* 到达完全不透明 / Reach full opacity */
+    transform: translateY(0) scale(1); /* 到达最终位置和大小 / Reach final position and size */
+  }
+}
+
+.calculator {
+  animation: calculatorLoad 0.5s ease-out; /* 加载动画 / Loading animation */
+}

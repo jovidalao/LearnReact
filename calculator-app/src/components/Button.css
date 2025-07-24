@@ -1,0 +1,288 @@
+/* Button组件样式 / Button Component Styles */
+
+/* 
+基础按钮样式 
+Base button styles 
+*/
+.button {
+  /* 布局属性 / Layout properties */
+  display: flex; /* 弹性布局 / Flex layout */
+  align-items: center; /* 垂直居中 / Vertical center */
+  justify-content: center; /* 水平居中 / Horizontal center */
+  position: relative; /* 相对定位，为内部绝对定位元素提供参考 / Relative positioning for inner absolute elements */
+  overflow: hidden; /* 隐藏溢出内容（用于波纹效果）/ Hide overflow content (for ripple effect) */
+  
+  /* 尺寸属性 / Size properties */
+  min-height: 60px; /* 最小高度确保可点击性 / Minimum height for clickability */
+  padding: 0; /* 移除默认内边距 / Remove default padding */
+  margin: 2px; /* 按钮间的小间距 / Small spacing between buttons */
+  
+  /* 字体样式 / Font styles */
+  font-size: 1.2rem; /* 字体大小 / Font size */
+  font-weight: 600; /* 半粗体 / Semi-bold */
+  font-family: inherit; /* 继承父元素字体 / Inherit parent font */
+  
+  /* 外观样式 / Appearance styles */
+  background: linear-gradient(145deg, #f0f0f0, #d1d1d1); /* 渐变背景 / Gradient background */
+  border: 1px solid #ccc; /* 边框 / Border */
+  border-radius: 8px; /* 圆角 / Rounded corners */
+  color: #333; /* 文字颜色 / Text color */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1), /* 外阴影 / Outer shadow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.3); /* 内阴影（高光效果）/ Inner shadow (highlight effect) */
+  
+  /* 交互属性 / Interaction properties */
+  cursor: pointer; /* 鼠标悬停时显示手型 / Show pointer cursor on hover */
+  user-select: none; /* 防止文字被选中 / Prevent text selection */
+  touch-action: manipulation; /* 优化触摸交互 / Optimize touch interaction */
+  
+  /* 过渡效果 / Transition effects */
+  transition: all 0.15s ease; /* 平滑过渡 / Smooth transition */
+}
+
+/* 
+按钮内容容器 
+Button content container 
+*/
+.button-content {
+  position: relative; /* 相对定位确保在波纹效果之上 / Relative positioning to stay above ripple effect */
+  z-index: 2; /* 层级确保内容在最上层 / Z-index to ensure content is on top */
+  pointer-events: none; /* 防止内容阻挡点击事件 / Prevent content from blocking click events */
+}
+
+/* 
+波纹效果元素 
+Ripple effect element 
+*/
+.button-ripple {
+  position: absolute; /* 绝对定位 / Absolute positioning */
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%); /* 径向渐变 / Radial gradient */
+  transform: scale(0); /* 初始缩放为0 / Initial scale 0 */
+  transition: transform 0.3s ease; /* 缩放过渡效果 / Scale transition effect */
+  pointer-events: none; /* 不阻挡点击事件 / Don't block click events */
+}
+
+/* 
+按钮悬停状态 
+Button hover state 
+*/
+.button:hover {
+  transform: translateY(-1px); /* 轻微上移效果 / Slight upward movement */
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.15), /* 增强的外阴影 / Enhanced outer shadow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4); /* 增强的内阴影 / Enhanced inner shadow */
+}
+
+/* 
+按钮激活状态（按下时）
+Button active state (when pressed)
+*/
+.button:active {
+  transform: translateY(1px); /* 下压效果 / Downward press effect */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2), /* 减弱的阴影 / Reduced shadow */
+    inset 0 2px 4px rgba(0, 0, 0, 0.1); /* 内凹阴影 / Inset shadow */
+}
+
+/* 
+按钮按下时的波纹效果 
+Ripple effect when button is pressed 
+*/
+.button:active .button-ripple {
+  transform: scale(1); /* 放大到正常大小 / Scale to normal size */
+}
+
+/* 
+按钮焦点状态（键盘导航）
+Button focus state (keyboard navigation)
+*/
+.button:focus-visible {
+  outline: 2px solid #4A90E2; /* 焦点轮廓 / Focus outline */
+  outline-offset: 2px; /* 轮廓偏移 / Outline offset */
+}
+
+/* 
+数字按钮样式 
+Number button styles 
+*/
+.button--number {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* 浅色渐变 / Light gradient */
+  color: #2c2c2c; /* 深色文字 / Dark text */
+  font-weight: 700; /* 粗体 / Bold */
+}
+
+.button--number:hover {
+  background: linear-gradient(145deg, #f8f8f8, #ddd); /* 悬停时的背景变化 / Background change on hover */
+}
+
+/* 
+操作符按钮样式 
+Operator button styles 
+*/
+.button--operator {
+  background: linear-gradient(145deg, #4A90E2, #357ABD); /* 蓝色渐变 / Blue gradient */
+  color: white; /* 白色文字 / White text */
+  border-color: #357ABD; /* 边框颜色 / Border color */
+  font-weight: 700; /* 粗体 / Bold */
+}
+
+.button--operator:hover {
+  background: linear-gradient(145deg, #5B9BD5, #4A90E2); /* 悬停时的颜色变化 / Color change on hover */
+}
+
+/* 
+等于按钮样式（特殊的操作符）
+Equals button styles (special operator)
+*/
+.button--equals {
+  background: linear-gradient(145deg, #28a745, #218838); /* 绿色渐变 / Green gradient */
+  color: white; /* 白色文字 / White text */
+  border-color: #218838; /* 边框颜色 / Border color */
+  font-weight: 700; /* 粗体 / Bold */
+  font-size: 1.4rem; /* 较大的字体 / Larger font */
+}
+
+.button--equals:hover {
+  background: linear-gradient(145deg, #34ce57, #28a745); /* 悬停时的颜色变化 / Color change on hover */
+}
+
+/* 
+功能按钮样式（清除、退格等）
+Function button styles (clear, backspace, etc.)
+*/
+.button--function {
+  background: linear-gradient(145deg, #6c757d, #5a6268); /* 灰色渐变 / Gray gradient */
+  color: white; /* 白色文字 / White text */
+  border-color: #5a6268; /* 边框颜色 / Border color */
+}
+
+.button--function:hover {
+  background: linear-gradient(145deg, #7d868f, #6c757d); /* 悬停时的颜色变化 / Color change on hover */
+}
+
+/* 
+内存按钮样式 
+Memory button styles 
+*/
+.button--memory {
+  background: linear-gradient(145deg, #fd7e14, #e35f0f); /* 橙色渐变 / Orange gradient */
+  color: white; /* 白色文字 / White text */
+  border-color: #e35f0f; /* 边框颜色 / Border color */
+  font-size: 0.9rem; /* 较小的字体以适应文字 / Smaller font to fit text */
+}
+
+.button--memory:hover {
+  background: linear-gradient(145deg, #fd8c2b, #fd7e14); /* 悬停时的颜色变化 / Color change on hover */
+}
+
+/* 
+零按钮特殊样式（通常占用两个按钮的宽度）
+Zero button special styles (usually spans two button widths)
+*/
+.button--zero {
+  grid-column: span 2; /* 占用两列 / Span two columns */
+  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* 与数字按钮相同的样式 / Same style as number buttons */
+  color: #2c2c2c; /* 深色文字 / Dark text */
+  font-weight: 700; /* 粗体 / Bold */
+}
+
+/* 
+禁用按钮样式 
+Disabled button styles 
+*/
+.button--disabled {
+  background: linear-gradient(145deg, #e9ecef, #dee2e6); /* 灰色渐变 / Gray gradient */
+  color: #6c757d; /* 灰色文字 / Gray text */
+  cursor: not-allowed; /* 禁用光标 / Disabled cursor */
+  opacity: 0.6; /* 半透明 / Semi-transparent */
+  box-shadow: none; /* 移除阴影 / Remove shadow */
+}
+
+.button--disabled:hover {
+  transform: none; /* 移除悬停效果 / Remove hover effects */
+  box-shadow: none; /* 移除悬停阴影 / Remove hover shadow */
+}
+
+.button--disabled:active {
+  transform: none; /* 移除按下效果 / Remove active effects */
+}
+
+/* 
+响应式设计 - 移动设备
+Responsive design - mobile devices
+*/
+@media (max-width: 768px) {
+  .button {
+    min-height: 50px; /* 在移动设备上减小按钮高度 / Reduce button height on mobile */
+    font-size: 1.1rem; /* 稍小的字体 / Slightly smaller font */
+    margin: 1px; /* 减少按钮间距 / Reduce button spacing */
+  }
+  
+  .button--equals {
+    font-size: 1.3rem; /* 调整等于按钮字体 / Adjust equals button font */
+  }
+  
+  .button--memory {
+    font-size: 0.8rem; /* 更小的内存按钮字体 / Smaller memory button font */
+  }
+}
+
+/* 
+触摸设备优化 
+Touch device optimization 
+*/
+@media (hover: none) and (pointer: coarse) {
+  /* 触摸设备上移除悬停效果 / Remove hover effects on touch devices */
+  .button:hover {
+    transform: none;
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  /* 增强按下效果以提供触觉反馈 / Enhance active effects for tactile feedback */
+  .button:active {
+    transform: scale(0.95); /* 缩放效果 / Scale effect */
+    transition: transform 0.1s ease; /* 快速过渡 / Quick transition */
+  }
+}
+
+/* 
+高对比度模式支持 
+High contrast mode support 
+*/
+@media (prefers-contrast: high) {
+  .button {
+    border: 2px solid #000; /* 更明显的边框 / More visible border */
+    background: #fff; /* 白色背景 / White background */
+    color: #000; /* 黑色文字 / Black text */
+  }
+  
+  .button--operator,
+  .button--equals,
+  .button--function,
+  .button--memory {
+    background: #000; /* 黑色背景 / Black background */
+    color: #fff; /* 白色文字 / White text */
+    border-color: #fff; /* 白色边框 / White border */
+  }
+}
+
+/* 
+减少动画偏好支持 
+Reduced motion preference support 
+*/
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button-ripple {
+    transition: none !important; /* 禁用所有过渡效果 / Disable all transition effects */
+  }
+  
+  .button:active .button-ripple {
+    transform: none; /* 禁用波纹效果 / Disable ripple effect */
+  }
+}

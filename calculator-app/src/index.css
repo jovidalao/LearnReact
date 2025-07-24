@@ -1,0 +1,97 @@
+/* 全局样式 / Global Styles */
+
+/* CSS重置和基础样式 / CSS Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 确保padding和border包含在元素宽度内 / Ensure padding and border are included in element width */
+}
+
+/* 
+设置根元素和body的基础样式 
+Set base styles for root element and body 
+*/
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; /* 使用系统字体栈确保最佳可读性 / Use system font stack for optimal readability */
+  -webkit-font-smoothing: antialiased; /* 在webkit浏览器中改善字体渲染 / Improve font rendering in webkit browsers */
+  -moz-osx-font-smoothing: grayscale; /* 在Firefox中改善字体渲染 / Improve font rendering in Firefox */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* 渐变背景 / Gradient background */
+  color: #333; /* 默认文字颜色 / Default text color */
+}
+
+/* 
+根应用容器样式 
+Root app container styles 
+*/
+#root {
+  height: 100vh; /* 占满整个视口高度 / Take full viewport height */
+  display: flex;
+  align-items: center; /* 垂直居中 / Vertical center */
+  justify-content: center; /* 水平居中 / Horizontal center */
+  padding: 20px; /* 内边距防止边缘贴边 / Padding to prevent edge touching */
+}
+
+/* 
+代码字体设置（用于显示数字和操作符）
+Code font settings (for displaying numbers and operators)
+*/
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; /* 等宽字体确保数字对齐 / Monospace font ensures number alignment */
+}
+
+/* 
+按钮通用样式重置 
+Universal button style reset 
+*/
+button {
+  border: none; /* 移除默认边框 / Remove default border */
+  outline: none; /* 移除焦点轮廓（将在组件中自定义） / Remove focus outline (will be customized in components) */
+  cursor: pointer; /* 鼠标悬停时显示手型 / Show pointer cursor on hover */
+  font-family: inherit; /* 继承父元素字体 / Inherit parent font */
+  transition: all 0.2s ease; /* 平滑过渡效果 / Smooth transition effects */
+}
+
+/* 
+输入框通用样式重置 
+Universal input style reset 
+*/
+input {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* 
+响应式设计基础 
+Responsive design basics 
+*/
+@media (max-width: 768px) {
+  /* 移动设备样式调整 / Mobile device style adjustments */
+  #root {
+    padding: 10px; /* 在小屏幕上减少内边距 / Reduce padding on small screens */
+  }
+}
+
+/* 
+可访问性改进 
+Accessibility improvements 
+*/
+@media (prefers-reduced-motion: reduce) {
+  /* 为喜欢减少动画的用户禁用过渡效果 / Disable transitions for users who prefer reduced motion */
+  * {
+    transition: none !important;
+  }
+}
+
+/* 
+焦点样式（可访问性） 
+Focus styles (accessibility) 
+*/
+*:focus-visible {
+  outline: 2px solid #4A90E2; /* 为键盘导航用户提供清晰的焦点指示 / Provide clear focus indication for keyboard navigation users */
+  outline-offset: 2px;
+}

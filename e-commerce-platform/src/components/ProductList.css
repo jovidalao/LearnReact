@@ -1,0 +1,137 @@
+/**
+ * 产品列表样式
+ * Product list styles
+ */
+
+.product-list-container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 筛选器侧边栏 / Filter sidebar */
+.filter-sidebar {
+  flex: 0 0 280px;
+  height: fit-content;
+}
+
+/* 主要内容区域 / Main content area */
+.product-list-main {
+  flex: 1;
+}
+
+/* 结果统计 / Results summary */
+.results-summary {
+  margin-bottom: 24px;
+}
+
+.results-summary h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+.results-subtitle {
+  font-size: 16px;
+  color: #666;
+  font-weight: 400;
+}
+
+/* 产品网格 / Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* 空状态 / Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.empty-state p {
+  margin: 0 0 24px 0;
+  font-size: 16px;
+}
+
+.reset-filters-btn {
+  padding: 12px 24px;
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.reset-filters-btn:hover {
+  background: #1e3d6f;
+}
+
+/* 响应式设计 / Responsive design */
+@media (max-width: 1024px) {
+  .product-list-container {
+    padding: 16px;
+  }
+  
+  .filter-sidebar {
+    flex: 0 0 260px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .filter-sidebar {
+    flex: none;
+    width: 100%;
+  }
+  
+  .results-summary h2 {
+    font-size: 20px;
+  }
+  
+  .results-subtitle {
+    font-size: 14px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list-container {
+    padding: 12px;
+  }
+  
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
