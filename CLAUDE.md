@@ -4,54 +4,86 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-This is a learning repository focused on full-stack development with React, Next.js, and React Native. It contains a comprehensive learning plan document that outlines a structured 40-week curriculum for mastering modern web and mobile development.
+This is a learning repository focused on full-stack development with React, Next.js, and React Native. It contains multiple project implementations that demonstrate progressive skill development, from basic React applications to complex full-stack systems.
 
-## Architecture Overview
+## Project Structure
 
-The repository currently contains:
-- `Full-Stack learning plan.md`: A comprehensive learning roadmap covering React, Next.js, and React Native development
-- Learning resources and structured curriculum for full-stack development
-- Project-based learning progression from beginner to expert level
+The repository contains several independent projects, each in its own directory:
 
-## Key Learning Path Structure
+- **calculator-app**: React + Vite application with basic state management
+- **e-commerce-platform**: TypeScript React app with context API and routing
+- **personal-portfolio**: Next.js application with Tailwind CSS
+- **task-management-system**: Full-stack Next.js app with Prisma, NextAuth, and database
+- **todo-app**: React + Vite app with Tailwind CSS
+- **weather-dashboard**: React + Vite app with external API integration
 
-The learning plan follows a 5-phase approach:
-1. **Phase 1 (Weeks 1-8)**: Foundation and React Fundamentals
-2. **Phase 2 (Weeks 9-16)**: Intermediate React and State Management  
-3. **Phase 3 (Weeks 17-24)**: Next.js and Full-Stack Development
-4. **Phase 4 (Weeks 25-32)**: React Native and Cross-Platform Development
-5. **Phase 5 (Weeks 33-40)**: Advanced Topics and Professional Development
+## Common Development Commands
 
-## Development Environment
+### React/Vite Projects (calculator-app, todo-app, weather-dashboard)
+```bash
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run preview    # Preview production build
+```
 
-The plan recommends:
-- **Package Manager**: pnpm for efficient dependency management
-- **Primary Editor**: VS Code with comprehensive extension setup
-- **Monorepo Structure**: Turborepo for managing web, mobile, and shared packages
-- **AI Tools**: Cursor for development, Claude Code for learning, GitHub Copilot for collaboration
+### TypeScript React Projects (e-commerce-platform)
+```bash
+npm run dev        # Start development server
+npm run build      # TypeScript compile + Vite build
+npm run lint       # Run ESLint
+npm run preview    # Preview production build
+```
 
-## Key Technologies Covered
+### Next.js Projects (personal-portfolio, task-management-system)
+```bash
+npm run dev        # Start development server with Turbopack
+npm run build      # Build for production
+npm run start      # Start production server
+npm run lint       # Run Next.js linting
+```
 
-- **Frontend**: React, Next.js, React Native, TypeScript
-- **State Management**: Redux Toolkit, Zustand, React Query
-- **UI Libraries**: Material-UI, Chakra UI, Tailwind CSS
-- **Testing**: Jest, React Testing Library, Detox
-- **Backend**: Next.js API routes, PostgreSQL with Prisma
-- **Deployment**: Vercel, Expo, app stores
+### Task Management System (Database Operations)
+```bash
+npx prisma db push      # Push schema changes to database
+npx prisma studio       # Open Prisma Studio GUI
+npx prisma generate     # Generate Prisma client
+```
 
-## Learning Methodology
+## Architecture Patterns
 
-The plan emphasizes:
-- Project-based learning with milestone tracking
-- 30 hours/week time commitment structure
-- Progressive skill building from basic to advanced
-- Real-world application development
-- Portfolio development for job readiness
+### React Applications
+- **State Management**: Local state with useState/useReducer, Context API for global state
+- **Styling**: CSS modules, Tailwind CSS for utility-first styling
+- **Build Tool**: Vite for fast development and building
+- **Component Structure**: Functional components with hooks
 
-## Notable Features
+### Next.js Applications  
+- **App Router**: Uses Next.js 13+ app directory structure
+- **Authentication**: NextAuth.js with custom providers (task-management-system)
+- **Database**: Prisma ORM with SQLite for development
+- **Styling**: Tailwind CSS with PostCSS
+- **TypeScript**: Full TypeScript support across Next.js projects
 
-- Comprehensive resource links and free learning materials
-- Detailed project progression from Todo apps to complex gamified learning platforms
-- AI-assisted development workflow integration
-- Industry readiness checklist and validation methods
-- Open-source contribution strategies
+### Key Technologies Used
+- **Frontend**: React 18+, Next.js 15, TypeScript
+- **Styling**: Tailwind CSS, CSS modules
+- **State Management**: React Context, local component state
+- **Database**: Prisma + SQLite (task-management-system)
+- **Authentication**: NextAuth.js (task-management-system)
+- **Build Tools**: Vite, Next.js built-in bundling
+
+## Working with Projects
+
+Each project is self-contained with its own dependencies. Navigate to the specific project directory before running commands:
+
+```bash
+cd calculator-app && npm run dev
+cd task-management-system && npm run dev
+```
+
+The task-management-system requires database setup:
+```bash
+cd task-management-system
+npx prisma db push
+npm run dev
+```

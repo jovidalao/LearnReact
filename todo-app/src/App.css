@@ -1,6 +1,13 @@
 /* Tailwind CSS import */
 @import "tailwindcss";
 
+/* Global body styling - 全局body样式设置 */
+body {
+  background-color: rgb(249 250 251); /* bg-gray-50 equivalent - 等同于bg-gray-50的颜色 */
+  margin: 0;
+  padding: 0;
+}
+
 /* Custom utility classes for specific styling needs */
 @layer utilities {
   .fade-in {
